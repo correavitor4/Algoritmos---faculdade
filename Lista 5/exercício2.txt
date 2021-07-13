@@ -1,0 +1,17 @@
+/* Escreva um algoritmo para imprimir os números de 1 (inclusive) à 10 (inclusive) em 
+
+ordem decrescente*/
+
+programa
+{
+	funcao inicio ()
+	{
+		inteiro a=10
+		enquanto(a>=1){
+			escreva(a)
+			escreva ("\n")
+			a--
+		}
+		
+	}
+}

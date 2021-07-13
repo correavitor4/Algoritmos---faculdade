@@ -1,0 +1,30 @@
+
+/*Escreva um algoritmo para ler 10 números e ao final da leitura escrever a soma total dos 
+
+10 números lidos*/
+programa
+{
+	funcao inicio ()
+	{
+		
+		escreva("Nesse programa, você terá que digitar 10 números diferentes, que serão somados \n \n")
+
+		pedirNumeros()
+		
+		
+	}
+	
+	funcao pedirNumeros(){
+		inteiro a=1
+		real n,soma=0
+		enquanto (a<=10){
+			escreva("\nDigite o ",a,"° número:  ")
+			leia(n)
+			soma+=n
+			a++
+			
+		}
+		
+		escreva("\nA soma dos números digitados é: ",soma)
+	}
+}

@@ -1,0 +1,16 @@
+/*Faça um algoritmo que imprima n caracteres “*” na tela. N deve ser lido pelo seu 
+
+algoritmo. Exemplo, para n = 6: “******”*/
+programa
+{
+	funcao inicio (){
+		inteiro n,cont=0
+		escreva("Digite um valor para n: ")
+		leia(n)
+		escreva("\n\n\n")
+		enquanto(cont<n){
+			escreva("*")
+			cont++
+		}
+	}
+}

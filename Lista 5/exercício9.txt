@@ -1,0 +1,34 @@
+/*Faça um programa que leia 100 valores e no final, escreva o maior e o menor valor lido.*/
+
+programa
+{
+	funcao inicio ()
+	{
+		inteiro n, maior,menor,i=1
+		
+		escreva("Digite 100 valores")
+		escreva("\n\n\nvalor ",i,": ")
+		leia(n)
+		i++
+		
+		maior=n
+		menor=n
+
+		enquanto (i<=100){
+			escreva("\nvalor ",i,": ")
+			leia(n)
+			i++
+			
+			se(n<menor){
+				menor=n
+			}
+			se(n>maior){
+				maior=n
+			}
+		}
+		
+		escreva("\nMaior: ",maior)
+		escreva("\nMenor: ",menor)
+
+	}
+}

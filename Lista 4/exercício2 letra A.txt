@@ -1,0 +1,27 @@
+1	Início Algoritmo
+2	Declare:
+3		Literal: nome, sexo
+4		Real: peso_ideal
+5	ler (nome, sexo)
+6	se sexo = M
+7	então
+8		peso_ideal <- (62.1 * altura) – 44.7
+9	senão
+10		peso_ideal <- (72.7 * altura) – 58
+11		escrever (peso_ideal)
+12	fim_se
+13	FimAlgoritmo
+
+
+
+ERROS:
+-Antes da linha 5
+	Deveria ter um "escreva" orientando o usuário a escrever o nome e o sexo
+-Na linha 3:
+	O sexo pode ser declado como tipo caractere
+-Na linha 8:
+	O peso ideal correto é dado por (72.7*altura)-58
+	A variável "altura" não foi declarada e nenhum valor foi atribuído a ela
+-Na linha 10:
+	O peso ideal correto é dado por (62.1*altura)-44.7
+	A variável "altura" não foi declarada e nenhum valor foi atribuído a ela

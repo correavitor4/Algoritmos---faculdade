@@ -1,0 +1,40 @@
+/*Ler um valor N e imprimir todos os valores inteiros entre 1 (inclusive) e N (inclusive). 
+
+Considere que o N será sempre maior que ZER*/
+programa
+{
+	funcao inicio ()
+	{
+		
+		inteiro n
+		escreva("Digite un valor inteiro maior que zero: ")
+		leia(n)
+		
+		se(verificaN(n)){
+			contarAteN(n)
+		}
+		senao{
+			escreva("O numero digitado deve ser maior do que zero")
+		}
+		
+		
+	}
+	
+	funcao logico verificaN(inteiro n){
+		se(!(n>0)){
+			retorne falso
+		}
+		senao{
+			retorne verdadeiro
+		}
+		}
+	
+	funcao contarAteN(inteiro n){
+		inteiro a=1
+		enquanto (a<=n){
+			escreva(a)
+			escreva("\n")
+			a++
+		}
+	}
+}
