@@ -1,17 +1,19 @@
 /*
-Crie uma função recursiva que retorne a soma dos elementos de um vetor de inteiros.
+Escreva uma função recursiva que retorne o menor elemento em um vetor.
+
 */
 programa
 {
 	
 	funcao inicio()
 	{
-		inteiro vetor[10],soma=0
+		inteiro vetor[10],menor
 		preencherVetor(vetor)
 
-		somarNumerosDoVetor(vetor,0,soma)
+		menor=vetor[9]
+		encontrarMenor(vetor,9,menor)
 
-		escreva("A soma dos números do vetor é: ",soma)
+		escreva("\n\nO menor número é: ",menor)
 		
 	}
 
@@ -24,20 +26,25 @@ programa
 		}
 	}
 
-	funcao somarNumerosDoVetor(inteiro vetor[],inteiro indice,inteiro &soma){
+	funcao encontrarMenor(inteiro vetor[],inteiro indice,inteiro &menor){
 		
-		se(indice<10){
-			somarNumerosDoVetor(vetor, indice+1,soma)
-			soma=soma+vetor[indice]
+		
+		se(indice>=0){
+			encontrarMenor(vetor,indice-1,menor)
+			se(vetor[indice]<menor){
+				menor=vetor[indice]
+			}
 		}
+		
 	}
+	
 }
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 383; 
+ * @POSICAO-CURSOR = 404; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
