@@ -5,7 +5,7 @@ palavra palíndromo. O vetor deverá ter no máximo 100 caracteres.
 programa
 {
 	inclua biblioteca Tipos-->tp
-	inclua biblioteca Texto-->tx
+	inclua biblioteca Texto-->tx
 	
 	funcao inicio()
 	{
@@ -14,44 +14,49 @@ programa
 		escreva("Digite a palavra(máximo 100 caracteres): \n")
 		leia(palavraString)
 
-		converterPalavraEmVetor(palavraString,vetor)
+		converterPalavraEmVetor(palavraString,vetor,0)
+
+		verificarPolindromo(vetor)
 	}
 
-	funcao converterPalavraEmVetor(cadeia palavra,cadeia &vetor[]){
-		inteiro i=0
+	funcao converterPalavraEmVetor(cadeia palavra,cadeia &vetor[],inteiro indice){
 		cadeia trechoExtraido
-		enquanto(i<100){
-			se(i==tx.numero_caracteres(palavra)){
-				trechoExtraido=tx.extrair_subtexto(palavra, i, i)
+
+		se(indice<tx.numero_caracteres(palavra)){
+			se(indice==(tx.numero_caracteres(palavra))){
+				vetor[indice]=tx.extrair_subtexto(palavra, indice, indice)
 			}
 			senao{
-				trechoExtraido=tx.extrair_subtexto(palavra, i, i+1)
+				converterPalavraEmVetor(palavra,vetor,indice+1)
+				vetor[indice]=tx.extrair_subtexto(palavra, indice, indice+1)
 			}
-			se(trechoExtraido==""){
-				pare
-			}
-			senao{
-				vetor[i]=trechoExtraido
-			}
-			
-			i++
 		}
+		
 	}
 	
 	funcao verificarPolindromo(cadeia palavra[]){
+		
+		inteiro i=0
 		logico retorno=falso
-		cadeia palavraAoContrario[]
+		cadeia palavraAoContrario[100]
 
-		retornarCadeiaDecrescente(palavra,palavraAoContrario)
+		
 
-		escreva()
+		retornarCadeiaDecrescente(palavra,palavraAoContrario,0)
+		
 		
 	}
 
-	funcao retornarCadeiaDecrescente(cadeia &palavra[],cadeia retorno[]){
+	
+
+	
+	funcao retornarCadeiaDecrescente(cadeia &palavra[],cadeia &retorno[],inteiro indice){
 		inteiro i=0,j,tamanhoVetor=0
-		cadeia retorno[]
+		
 		logico al=falso
+	
+		
+
 
 		enquanto(al==falso){
 			se( i==100 ou palavra[i]=="" ){
@@ -78,9 +83,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1024; 
+ * @POSICAO-CURSOR = 743; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {vetor, 12, 11, 5};
+ * @SIMBOLOS-INSPECIONADOS = {vetor, 22, 55, 5};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
