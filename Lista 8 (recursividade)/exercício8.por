@@ -9,14 +9,19 @@ programa
 	
 	funcao inicio()
 	{
-		cadeia vetor[100]
+		cadeia vetor[100],palavraAoContrario[100]
 		cadeia palavraString
 		escreva("Digite a palavra(máximo 100 caracteres): \n")
 		leia(palavraString)
+		logico polindromo
 
 		converterPalavraEmVetor(palavraString,vetor,0)
 
-		verificarPolindromo(vetor)
+		retornarPalavraAoContrario(vetor,palavraAoContrario,0,tx.numero_caracteres(palavraString)-1)
+
+		polindromo = compararPalavras(vetor,palavraAoContrario,0)
+
+		escreva("A palavra ",palavraString, " é um ",polindromo, " políndromo")
 	}
 
 	funcao converterPalavraEmVetor(cadeia palavra,cadeia &vetor[],inteiro indice){
@@ -34,23 +39,54 @@ programa
 		
 	}
 	
-	funcao verificarPolindromo(cadeia palavra[]){
-		
-		inteiro i=0
-		logico retorno=falso
-		cadeia palavraAoContrario[100]
-
-		
-
-		retornarCadeiaDecrescente(palavra,palavraAoContrario,0)
-		
-		
+	funcao retornarPalavraAoContrario(cadeia &palavra[],cadeia &palavraAoContrario[],inteiro indiceI,inteiro indiceJ){
+		se(indiceJ>=0){
+			se(indiceJ==0){
+				palavraAoContrario[indiceJ]=palavra[indiceI]
+				
+			}
+			senao{
+				retornarPalavraAoContrario(palavra,palavraAoContrario,indiceI+1,indiceJ-1)
+				palavraAoContrario[indiceJ]=palavra[indiceI]
+				
+			}
+			
+			
+		}
+			
+				
 	}
 
+	funcao logico compararPalavras(cadeia &palavra[],cadeia &palavraAoContrario[],inteiro indice){
+		se(indice<100){
+			se(palavra[indice]==""){
+				retorne verdadeiro
+			}
+			senao{
+				se(compararPalavras(palavra,palavraAoContrario,indice+1)==falso){
+					retorne falso
+				}
+				senao{
+					
+					se(palavra[indice]==palavraAoContrario[indice]){
+						retorne verdadeiro
+					}
+					senao{
+						retorne falso
+					}
+				}
+			}
+			
+			
+		}
+		senao{
+			retorne verdadeiro
+		}
+	}
 	
 
 	
-	funcao retornarCadeiaDecrescente(cadeia &palavra[],cadeia &retorno[],inteiro indice){
+	/*funcao retornarCadeiaDecrescente(cadeia &palavra[],cadeia &retorno[],inteiro indice){
 		inteiro i=0,j,tamanhoVetor=0
 		
 		logico al=falso
@@ -74,7 +110,7 @@ programa
 			i++
 			j--
 		}
-	}
+	}*/
 
 
 }
@@ -83,9 +119,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 743; 
+ * @POSICAO-CURSOR = 1677; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {vetor, 22, 55, 5};
+ * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
